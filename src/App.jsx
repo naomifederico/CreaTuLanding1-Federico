@@ -1,26 +1,13 @@
 import * as React from 'react'
-import { useState } from 'react'
-//import './App.css'
-import { Box, ChakraProvider } from '@chakra-ui/react'
-import NavBar from './components/NavBar'
-import ItemListContainer from './components/ItemListContainer'
-import './styles/style.css'
+import { ChakraProvider } from '@chakra-ui/react'
+import { RouterProvider } from 'react-router-dom'
+import { router } from './routes'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <ChakraProvider>
-        <Box height='100 vh'>
-
-          <NavBar />
-          <ItemListContainer greeting="Bienvenidos a nuestra tienda online!" />
-
-        </Box>
-
-      </ChakraProvider>
-    </>
+    <ChakraProvider>
+      <RouterProvider router={router} />
+    </ChakraProvider>
   )
 }
 
