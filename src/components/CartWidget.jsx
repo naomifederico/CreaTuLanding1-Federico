@@ -1,14 +1,19 @@
 import * as React from "react";
 import { FaCartPlus } from "react-icons/fa";
-import { Flex, Text } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
+
 
 const CartWidget = () => {
+
+  const { getTotalCount } = useContext(CartContext)
+  const totalCount = getTotalCount();
+
+
   return (
     <Flex alignItems="center" gap={2} cursor="pointer" color="white">
-      <FaCartPlus size={20} />
-      <Text fontSize="md" fontWeight="bold">
-        1
-      </Text>
+      <FaCartPlus size={20} /> {totalCount}
     </Flex>
   );
 };

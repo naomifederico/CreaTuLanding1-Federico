@@ -1,4 +1,3 @@
-
 import {
     Box,
     chakra,
@@ -16,11 +15,18 @@ import {
     VisuallyHidden,
     List,
     ListItem,
+    Input,
 } from '@chakra-ui/react'
 import { MdLocalShipping } from 'react-icons/md'
+import ItemCount from './ItemCount'; 
+
 
 const ItemDetailContainer = ({ product }) => {
+    
+
     if (!product) return <p>Cargando...</p>;
+      
+
 
     return (
         <Container maxW={'7xl'}>
@@ -73,22 +79,8 @@ const ItemDetailContainer = ({ product }) => {
 
                         </VStack>
                     </Stack>
+                    <ItemCount product={product} />
 
-                    <Button
-                        rounded={'none'}
-                        w={'full'}
-                        mt={8}
-                        size={'lg'}
-                        py={'7'}
-                        bg={useColorModeValue('gray.900', 'gray.50')}
-                        color={useColorModeValue('white', 'gray.900')}
-                        textTransform={'uppercase'}
-                        _hover={{
-                            transform: 'translateY(2px)',
-                            boxShadow: 'lg',
-                        }}>
-                        Add to cart
-                    </Button>
 
                     <Stack direction="row" alignItems="center" justifyContent={'center'}>
                         <MdLocalShipping />
